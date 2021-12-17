@@ -60,4 +60,5 @@
 
 ;; exit no confirm
 confirm-kill-emacs nil
-
+;;(global-set-key (kbd "M-0") 'treemacs-select-window)
+(global-set-key (kbd "M-0") 'neotree)
