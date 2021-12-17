@@ -54,8 +54,9 @@
 ;; they are implemented.
 
 ;;(setq url-proxy-services
-;;                '(("http"  . "127.0.0.1:4567")
-;;                      ("https" . "127.0.0.1:4567")))
+;;   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+;;     ("http" . "127.0.0.1:4567")
+;;     ("https" . "127.0.0.1:4567")))
 
 ;; exit no confirm
 confirm-kill-emacs nil
