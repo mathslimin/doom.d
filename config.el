@@ -62,3 +62,6 @@
 confirm-kill-emacs nil
 ;;(global-set-key (kbd "M-0") 'treemacs-select-window)
 (global-set-key (kbd "M-0") 'neotree)
+(setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
+(setq doom-theme 'doom-one)
+
