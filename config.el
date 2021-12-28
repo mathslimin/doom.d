@@ -65,4 +65,4 @@ confirm-kill-emacs nil
 ;;(global-set-key (kbd "C-[") 'evil-jump-backward)
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
 (setq doom-theme 'doom-one)
-
+(+global-word-wrap-mode t)
