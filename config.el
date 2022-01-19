@@ -53,11 +53,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;(setq url-proxy-services
-;;   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-;;     ("http" . "127.0.0.1:4567")
-;;     ("https" . "127.0.0.1:4567")))
-
 ;; exit no confirm
 confirm-kill-emacs nil
 (global-set-key (kbd "M-t") 'treemacs-select-window)
@@ -66,3 +61,13 @@ confirm-kill-emacs nil
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
 (setq doom-theme 'doom-one)
 (+global-word-wrap-mode t)
+(require 'meghanada)
+;;(add-hook 'java-mode-hook
+;;          (lambda ()
+;;            ;; meghanada-mode on
+;;            (meghanada-mode t)
+;;            (flycheck-mode +1)
+;;            ;;(setq c-basic-offset 2)
+;;            ;; use code format
+;;            ;;(add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
+;;))
