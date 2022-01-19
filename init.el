@@ -13,7 +13,10 @@
 ;;
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
-
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+     ("http" . "127.0.0.1:4567")
+     ("https" . "127.0.0.1:4567")))
 (doom! :input
        ;;chinese
        ;;japanese
@@ -87,6 +90,7 @@
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
        ;;debugger          ; FIXME stepping through code, to help you add bugs
+       (debugger +lsp)
        ;;direnv
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
@@ -113,8 +117,8 @@
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
-       cc                ; C > C++ == 1
-       ;;(cc +lsp) ;; C++ with clangd by default
+       ;;cc                ; C > C++ == 1
+       (cc +lsp) ;; C++ with clangd by default
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
