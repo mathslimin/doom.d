@@ -13,17 +13,19 @@
 ;;
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
-(setq url-proxy-services
-   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-     ("http" . "127.0.0.1:4567")
-     ("https" . "127.0.0.1:4567")))
+;;(setq url-proxy-services
+;;   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+;;     ("http" . "127.0.0.1:4567")
+;;     ("https" . "127.0.0.1:4567")))
+;;(setq lsp-java-jdt-download-url "http://10.243.33.98/jdt-language-server-latest.tar.gz")
 (doom! :input
        ;;chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
+       ;;company           ; the ultimate code completion backend
+       (company +auto)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -139,8 +141,8 @@
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        (go +lsp)         ; the hipster dialect
-       ;;(java +lsp)         ;
-       (java +meghanada)         ;
+       (java +lsp)         ;
+       ;;(java +meghanada)         ;
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
