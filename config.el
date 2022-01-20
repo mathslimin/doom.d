@@ -61,3 +61,5 @@ confirm-kill-emacs nil
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
 (setq doom-theme 'doom-one)
 (+global-word-wrap-mode t)
+(after! lsp-mode
+        (setq lsp-auto-guess-root t))
