@@ -6,8 +6,7 @@ install jdt
 ```
 emacs run command lsp-install-server
 cd /tmp/lsp-java-installnAxxxe
-cp pom.xml .
-vim pom.xml
+vim pom.xml change url to http://10.243.33.98/lsp
 mvn  \
   -Djdt.js.server.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls \
   -Djunit.runner.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/test-runner \
