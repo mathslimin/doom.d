@@ -7,11 +7,11 @@ sudo apt install fd-find
 npm install -g marked
 sudo apt install tidy
 npm install -g stylelint
-pip install pytest
-pip install nose
-pip install black
-pip install pyflakes
-pip install isort
+pip3 install pytest
+pip3 install nose
+pip3 install black
+pip3 install pyflakes
+pip3 install isort
 
 ```
 install jdt
