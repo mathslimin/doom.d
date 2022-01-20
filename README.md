@@ -1,7 +1,19 @@
 
 # doom.d
 my doom.d  config
+### install soft
+```shell
+sudo apt install fd-find
+npm install -g marked
+sudo apt install tidy
+npm install -g stylelint
+pip install pytest
+pip install nose
+pip install black
+pip install pyflakes
+pip install isort
 
+```
 install jdt
 ```
 emacs run command lsp-install-server
