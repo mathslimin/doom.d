@@ -63,3 +63,5 @@ confirm-kill-emacs nil
 (+global-word-wrap-mode t)
 (after! lsp-mode
         (setq lsp-auto-guess-root t))
+(after! projectile
+          (add-to-list 'projectile-project-root-files-bottom-up ".projectile"))
