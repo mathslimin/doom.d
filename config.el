@@ -65,4 +65,4 @@ confirm-kill-emacs nil
         (setq lsp-auto-guess-root t))
 (after! projectile
           (add-to-list 'projectile-project-root-files-bottom-up ".projectile"))
-(global-set-key "\C-c\C-c" 'comment-region)
+(global-set-key "\C-c\C-c" 'comment-or-uncomment-region)
