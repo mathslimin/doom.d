@@ -12,6 +12,7 @@ pip3 install nose
 pip3 install black
 pip3 install pyflakes
 pip3 install isort
+pip3 install cmake-language-server
 
 ```
 install jdt
