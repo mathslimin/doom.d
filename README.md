@@ -37,3 +37,7 @@ mvn  \
 ```bash
   ls ~/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/
 ```
+
+### link articles
+[doom lang](https://github.com/hlissner/doom-emacs/tree/master/modules/lang)
+[Doom Emacs and Language Servers](https://rgoswami.me/posts/emacs-lang-servers/)
