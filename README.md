@@ -13,7 +13,13 @@ pip3 install black
 pip3 install pyflakes
 pip3 install isort
 pip3 install cmake-language-server
-
+mkdir -p /usr/local/lsp
+cd /usr/local/lsp
+wget https://github.com/clangd/clangd/releases/download/12.0.0/clangd-linux-12.0.0.zip
+unzip clangd-linux-12.0.0.zip
+mv clangd-linux-12.0.0/* .
+#vim /etc/profile add
+export PATH=/usr/local/lsp/bin:$PATH
 ```
 install jdt
 ```
