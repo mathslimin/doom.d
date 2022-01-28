@@ -4,8 +4,9 @@ my doom.d  config
 ### install thirdparty software
 ```shell
 sudo apt install fd-find -y
-npm install -g marked
+sudo apt-get install ripgrep
 sudo apt install tidy -y
+npm install -g marked
 npm install -g stylelint
 pip3 install pytest
 pip3 install nose
