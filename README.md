@@ -1,7 +1,7 @@
 
 # doom.d
 my doom.d  config
-### install soft
+### install thirdparty software
 ```shell
 sudo apt install fd-find -y
 npm install -g marked
@@ -21,7 +21,7 @@ mv clangd-linux-12.0.0/* .
 #vim /etc/profile add
 export PATH=/usr/local/lsp/bin:$PATH
 ```
-install jdt
+### install jdt
 ```
 emacs run command lsp-install-server
 cd /tmp/lsp-java-installnAxxxe
