@@ -3,9 +3,9 @@
 my doom.d  config
 ### install soft
 ```shell
-sudo apt install fd-find
+sudo apt install fd-find -y
 npm install -g marked
-sudo apt install tidy
+sudo apt install tidy -y
 npm install -g stylelint
 pip3 install pytest
 pip3 install nose
