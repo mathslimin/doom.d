@@ -21,6 +21,8 @@ unzip clangd-linux-12.0.0.zip
 mv clangd-linux-12.0.0/* .
 #vim /etc/profile add
 export PATH=/usr/local/lsp/bin:$PATH
+#vim .bashrc
+export PATH=~/.local/bin:$PATH
 ```
 ### install jdt
 ```
