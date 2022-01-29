@@ -40,6 +40,12 @@ mvn  \
 ```bash
   ls ~/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/
 ```
+### some errors
+if lsp start fail
+```shell
+rm -r -f ~/.emacs.d/.local/etc/java-workspace
+rm -r -f ~/.emacs.d/.local/etc/workspaces
+```
 
 ### link articles
 [doom lang](https://github.com/hlissner/doom-emacs/tree/master/modules/lang)
