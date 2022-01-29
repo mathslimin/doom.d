@@ -8,6 +8,8 @@ sudo apt-get install ripgrep
 sudo apt install tidy -y
 npm install -g marked
 npm install -g stylelint
+npm i -g bash-language-server
+
 pip3 install pytest
 pip3 install nose
 pip3 install black
