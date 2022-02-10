@@ -66,3 +66,8 @@ confirm-kill-emacs nil
 (after! projectile
           (add-to-list 'projectile-project-root-files-bottom-up ".projectile"))
 (global-set-key (kbd "C-c /") 'comment-or-uncomment-region)
+;; disable highlighting current line
+(custom-set-faces
+  '(default ((t (:background "#000000"))))
+  '(hl-line ((t (:background "#000000"))))
+ )
