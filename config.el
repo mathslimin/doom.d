@@ -71,3 +71,5 @@ confirm-kill-emacs nil
   '(default ((t (:background "#000000"))))
   '(hl-line ((t (:background "#000000"))))
  )
+;;cmake-mode disable format
+(setq-hook! 'cmake-mode-hook +format-with :none)
