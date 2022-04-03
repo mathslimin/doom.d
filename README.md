@@ -29,6 +29,7 @@ export PATH=~/.local/bin:$PATH
 ### install jdt
 ```
 emacs run command lsp-install-server
+choose jdtls
 cd /tmp/lsp-java-installnAxxxe
 vim pom.xml # change url to http://10.243.33.98/lsp
 mvn  \
