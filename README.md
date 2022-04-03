@@ -6,6 +6,18 @@ my doom.d  config
 sudo apt install fd-find -y
 sudo apt-get install ripgrep
 sudo apt install tidy -y
+#centos
+wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd-v7.4.0-x86_64-unknown-linux-gnu.tar.gz
+tar -zxvf fd-v7.4.0-x86_64-unknown-linux-*.tar.gz
+cd fd-v7.4.0-x86_64-unknown-linux-*
+cp ./fd /usr/local/bin/
+cp ./fd.1 /usr/local/share/man/man1/
+sudo yum install ripgrep
+#suse
+sudo zypper install ripgrep
+or download from https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0
+
+
 npm install -g marked
 npm install -g stylelint
 npm i -g bash-language-server
@@ -27,6 +39,7 @@ export PATH=/usr/local/lsp/bin:$PATH
 export PATH=~/.local/bin:$PATH
 ```
 ### install jdt
+old method
 ```
 emacs run command lsp-install-server
 choose jdtls
@@ -38,6 +51,17 @@ mvn  \
   -Djunit.runner.fileName=junit-platform-console-standalone.jar \
   -Djava.debug.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/server/bundles \
   -Djdt.download.url=https://download.eclipse.org/jdtls/snapshots/jdt-language-server-latest.tar.gz \
+  package
+```
+new method
+```
+cd ~/.doom.d
+mvn  \
+  -Djdt.js.server.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls \
+  -Djunit.runner.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/test-runner \
+  -Djunit.runner.fileName=junit-platform-console-standalone.jar \
+  -Djava.debug.root=/home/paas/.emacs.d/.local/etc/lsp/eclipse.jdt.ls/server/bundles \
+  -Djdt.download.url=http://10.243.33.98/jdt-language-server-latest.tar.gz \
   package
 ```
 ```bash
