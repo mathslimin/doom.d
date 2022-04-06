@@ -3,6 +3,7 @@
 my doom.d  config
 ### install thirdparty software
 ```shell
+sudo apt install clang-format
 sudo apt install fd-find -y
 sudo apt-get install ripgrep
 sudo apt install tidy -y
