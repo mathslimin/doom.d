@@ -16,10 +16,9 @@ cp ./fd.1 /usr/local/share/man/man1/
 wget https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz 
 tar zxvf ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
 mv ripgrep-13.0.0-x86_64-unknown-linux-musl/rg /usr/local/bin/
-#sudo yum install ripgrep
+#yum install ripgrep
 #suse
 sudo zypper install ripgrep
-or download from https://github.com/BurntSushi/ripgrep/releases/tag/13.0.0
 
 
 npm install -g marked
