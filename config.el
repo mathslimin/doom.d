@@ -59,7 +59,7 @@ confirm-kill-emacs nil
 (global-set-key (kbd "M-n") 'neotree)
 ;;(global-set-key (kbd "C-[") 'evil-jump-backward)
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
-(setq doom-theme 'doom-one)
+
 (+global-word-wrap-mode t)
 (after! lsp-mode
         (setq lsp-auto-guess-root t))
@@ -73,3 +73,5 @@ confirm-kill-emacs nil
  )
 ;;cmake-mode disable format
 (setq-hook! 'cmake-mode-hook +format-with :none)
+(setq-hook! 'c-mode-hook +format-with :none)
+(setq-hook! 'cpp-mode-hook +format-with :none)
