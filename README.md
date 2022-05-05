@@ -31,6 +31,8 @@ pip3 install black
 pip3 install pyflakes
 pip3 install isort
 pip3 install cmake-language-server
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+
 mkdir -p /usr/local/lsp
 cd /usr/local/lsp
 wget https://github.com/clangd/clangd/releases/download/12.0.0/clangd-linux-12.0.0.zip
