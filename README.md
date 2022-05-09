@@ -93,3 +93,4 @@ git remote set-url origin git@github.com:emacs-straight/emacsmirror-mirror.git
 [Doom Emacs and Language Servers](https://rgoswami.me/posts/emacs-lang-servers/)
 
 
+kbd "C-]") 'evil-jump-to-tag
