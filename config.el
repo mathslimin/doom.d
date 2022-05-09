@@ -27,7 +27,6 @@
 ;; `load-theme' function. This is the default:
 ;;(setq doom-theme 'doom-one)
 (setq doom-theme 'doom-xcode)
-;;(setq doom-theme 'doom-one-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -59,8 +58,7 @@
 confirm-kill-emacs nil
 (global-set-key (kbd "M-t") 'treemacs-select-window)
 (global-set-key (kbd "M-n") 'neotree)
-;;(global-set-key (kbd "C-]") 'evil-jump-to-tag)
-(global-set-key (kbd "C-[") 'evil-jump-backward)
+;;(global-set-key (kbd "C-[") 'evil-jump-backward)
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
 
 (+global-word-wrap-mode t)
@@ -70,10 +68,10 @@ confirm-kill-emacs nil
           (add-to-list 'projectile-project-root-files-bottom-up ".projectile"))
 (global-set-key (kbd "C-c /") 'comment-or-uncomment-region)
 ;; disable highlighting current line
-;;(custom-set-faces
-;;  '(default ((t (:background "#000000"))))
-;;  '(hl-line ((t (:background "#000000"))))
-;; )
+(custom-set-faces
+  '(default ((t (:background "#000000"))))
+  '(hl-line ((t (:background "#000000"))))
+ )
 ;;cmake-mode disable format
 (setq-hook! 'cmake-mode-hook +format-with :none)
 (setq-hook! 'c-mode-hook +format-with :none)
