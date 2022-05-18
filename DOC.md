@@ -1,4 +1,5 @@
 ### 参考资料
+Emacs 笔记 (一) —— 安装与配置 Doom Emacs https://shigaro.org/2020/07/01/emacs-1/
 
 https://www.dazhuanlan.com/cece0996/topics/1623990
 [Getting started with Doom Emacs](https://medium.com/@aria_39488/getting-started-with-doom-emacs-a-great-transition-from-vim-to-emacs-9bab8e0d8458)
