@@ -18,6 +18,11 @@
 ;;     ("http" . "127.0.0.1:4567")
 ;;     ("https" . "127.0.0.1:4567")))
 ;;(setq lsp-java-jdt-download-url "http://10.243.33.98/jdt-language-server-latest.tar.gz")
+;;; 添加中国源
+(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
+                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
 (doom! :input
        ;;chinese
        ;;japanese
