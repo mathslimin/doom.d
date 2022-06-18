@@ -24,12 +24,7 @@
 ;;                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
 ;;                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
 ;;
-(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			 ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/")
-			 ("org") . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-			))
-(package-initialize) ;; You might already have this line
+;;(package-initialize) ;; You might already have this line
 
 (doom! :input
        ;;chinese
