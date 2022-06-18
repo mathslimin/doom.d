@@ -78,14 +78,6 @@ if lsp start fail
 rm -r -f ~/.emacs.d/.local/etc/java-workspace
 rm -r -f ~/.emacs.d/.local/etc/workspaces
 ```
-### fix github block issue
-```shell
-cd ~/.emacs.d/.local/straight/repos/melpa
-git remote set-url origin git@github.com:melpa/melpa.git
-cd ~/.emacs.d/.local/straight/repos/emacsmirror-mirror
-git remote set-url origin git@github.com:emacs-straight/emacsmirror-mirror.git 
-~/.emacs.d/bin/doom install
-```
 
 ### link articles
 [doom lang](https://github.com/hlissner/doom-emacs/tree/master/modules/lang)
