@@ -59,6 +59,7 @@ confirm-kill-emacs nil
 (global-set-key (kbd "M-t") 'treemacs-select-window)
 (global-set-key (kbd "M-n") 'neotree)
 (global-set-key (kbd "C-]") 'evil-jump-to-tag)
+(global-set-key (kbd "M-[") 'pop-tag-mark)
 (global-set-key (kbd "C-.") 'evil-jump-forward)
 (global-set-key (kbd "C-,") 'evil-jump-backward)
 (setq doom-font (font-spec :family "Monaco" :size 16 :weight 'semi-light))
