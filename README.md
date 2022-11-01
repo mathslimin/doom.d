@@ -35,9 +35,9 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 mkdir -p /usr/local/lsp
 cd /usr/local/lsp
-wget https://github.com/clangd/clangd/releases/download/12.0.0/clangd-linux-12.0.0.zip
-unzip clangd-linux-12.0.0.zip
-mv clangd_12.0.0/*
+wget https://github.com/clangd/clangd/releases/download/15.0.3/clangd-linux-15.0.3.zip
+unzip clangd-linux-15.0.3.zip
+mv clangd_15.0.3/*
 #vim /etc/profile add
 export PATH=/usr/local/lsp/bin:$PATH
 #vim .bashrc
