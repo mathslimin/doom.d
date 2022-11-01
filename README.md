@@ -33,13 +33,13 @@ pip3 install isort
 pip3 install cmake-language-server
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
-mkdir -p /usr/local/lsp
-cd /usr/local/lsp
+mkdir -p /opt/soft/clangd
+cd /opt/soft/clangd
 wget https://github.com/clangd/clangd/releases/download/15.0.3/clangd-linux-15.0.3.zip
 unzip clangd-linux-15.0.3.zip
 mv clangd_15.0.3/*
 #vim /etc/profile add
-export PATH=/usr/local/lsp/bin:$PATH
+export PATH=/opt/soft/clangd/bin:$PATH
 #vim .bashrc
 export PATH=~/.local/bin:$PATH
 ```
