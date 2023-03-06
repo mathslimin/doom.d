@@ -1,4 +1,11 @@
+# install emacs
+```bash
+sudo apt install libxpm-dev libjpeg-dev libgif-dev libtiff-dev libpng-dev libgnutls28-dev libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev gnutls-bin libtinfo-dev libncurses-dev
 
+./configure --prefix=/opt/soft/emacs --with-x-toolkit=no  --with-gnutls=no
+make -j16
+make install
+```
 # doom.d
 my doom.d  config
 ### install thirdparty software
