@@ -118,5 +118,5 @@ confirm-kill-emacs nil
 ;;cmake-mode disable format
 (setq-hook! 'cmake-mode-hook +format-with :none)
 (setq-hook! 'c-mode-hook +format-with :none)
-(setq-hook! 'cpp-mode-hook +format-with :none)
+(setq-hook! 'c++-mode-hook +format-with :none)
 
