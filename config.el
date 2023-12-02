@@ -120,3 +120,9 @@ confirm-kill-emacs nil
 (setq-hook! 'c-mode-hook +format-with :none)
 (setq-hook! 'c++-mode-hook +format-with :none)
 
+(defun compile-and-run-c ()
+  "Compile and run the current C file."
+  (interactive)
+  (compile (concat "gcc -I../include -I../../include -lm -lpthread -L../lib -o /tmp/cdebug.exe" " " buffer-file-name " && " "/tmp/cdebug.exe" )))
+(global-set-key (kbd "C-c C-r") 'compile-and-run-c)
+(global-set-key (kbd "<f5>") 'compile-and-run-c)
