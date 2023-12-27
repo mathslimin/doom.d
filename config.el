@@ -119,6 +119,7 @@ confirm-kill-emacs nil
 (setq-hook! 'cmake-mode-hook +format-with :none)
 (setq-hook! 'c-mode-hook +format-with :none)
 (setq-hook! 'c++-mode-hook +format-with :none)
+(setq-hook! 'python-mode-hook +format-with :none)
 
 (defun compile-and-run-c ()
   "Compile and run the current C file."
