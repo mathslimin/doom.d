@@ -7,6 +7,13 @@ sudo apt install libxpm-dev libjpeg-dev libgif-dev libtiff-dev libpng-dev libgnu
 make -j16
 make install
 ```
+# install doom
+```bash
+git clone git@github.com:mathslimin/doomemacs.git -b develop --depth=1 ~/.config/emacs
+cd ~/.config/emacs
+./install.sh
+~/.config/emacs/bin/doom install
+```
 # doom.d
 my doom.d  config
 ### install thirdparty software
@@ -94,3 +101,6 @@ rm -r -f ~/.emacs.d/.local/etc/workspaces
 
 
 kbd "C-]") 'evil-jump-to-tag
+
+### 使用方法
+按F5运行C语言
