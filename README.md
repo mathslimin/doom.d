@@ -9,7 +9,7 @@ make install
 ```
 # install doom
 ```bash
-git clone git@github.com:mathslimin/doomemacs.git -b develop --depth=1 ~/.config/emacs
+git clone https://github.com/mathslimin/doomemacs.git -b develop --depth=1 ~/.config/emacs
 cd ~/.config/emacs
 ./install.sh
 ~/.config/emacs/bin/doom install
