@@ -127,3 +127,4 @@ confirm-kill-emacs nil
   (compile (concat "gcc -I../include -I../../include -lm -lpthread -L../lib -o /tmp/cdebug.exe" " " buffer-file-name " && " "/tmp/cdebug.exe" )))
 (global-set-key (kbd "C-c C-r") 'compile-and-run-c)
 (global-set-key (kbd "<f5>") 'compile-and-run-c)
+(setq doom-modeline-modal-icon nil) ;; show evil mode status
