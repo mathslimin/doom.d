@@ -128,3 +128,5 @@ confirm-kill-emacs nil
 (global-set-key (kbd "C-c C-r") 'compile-and-run-c)
 (global-set-key (kbd "<f5>") 'compile-and-run-c)
 (setq doom-modeline-modal-icon nil) ;; show evil mode status
+(setq global-flycheck-mode nil);; disable flycheck
+(setq flycheck-check-syntax-automatically '(save mode-enabled));; flycheck when save file
