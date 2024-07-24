@@ -1,6 +1,6 @@
 # install emacs
 ```bash
-sudo apt install libxpm-dev libjpeg-dev libgif-dev libtiff-dev libpng-dev libgnutls28-dev libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev gnutls-bin libtinfo-dev libncurses-dev
+sudo apt install libxpm-dev libjpeg-dev libgif-dev libtiff-dev libpng-dev libgnutls28-dev libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev gnutls-bin libtinfo-dev libncurses-dev texinfo
 
 ./configure --prefix=/opt/soft/emacs --without-x --with-gnutls=no
 
