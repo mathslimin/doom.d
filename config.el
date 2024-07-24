@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name ""
+      user-mail-address "")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -129,11 +129,6 @@ confirm-kill-emacs nil
 (global-set-key (kbd "<f5>") 'compile-and-run-c)
 (setq doom-modeline-modal-icon nil) ;; show evil mode status
 
-;;(setq global-flycheck-mode nil);; disable flycheck
-;;(setq flycheck-check-syntax-automatically '(save mode-enabled));; flycheck when save file
-;; disable pylint flake8
-;;(setq lsp-pylsp-plugins-pylint-enabled nil)
-;;(setq lsp-pylsp-plugins-flake8-enabled nil)
 ;;lsp frequency and cpu limit
 (setq lsp-idle-delay 0.5)
 (setq lsp-diagnostics-provider :none)
