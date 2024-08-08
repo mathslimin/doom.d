@@ -45,9 +45,9 @@ npm install -g marked
 npm install -g stylelint
 npm i -g bash-language-server
 
-pip install python-language-server[all]
-pip install python-lsp-server
-pip install cmake-language-server
+pip3 install python-language-server[all]
+pip3 install python-lsp-server
+pip3 install cmake-language-server
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 mkdir -p /opt/soft/clangd
