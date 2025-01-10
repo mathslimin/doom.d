@@ -132,4 +132,19 @@ confirm-kill-emacs nil
 ;;lsp frequency and cpu limit
 (setq lsp-idle-delay 0.5)
 (setq lsp-diagnostics-provider :none)
+;; 设置全局 Tab 宽度为 4 个空格
+(setq-default tab-width 4)
+
+;; 使用空格代替 Tab 字符
+(setq-default indent-tabs-mode nil)
+
+;; 在特定模式（如 Python）中设置 Tab 宽度
+(add-hook 'python-mode-hook
+          (lambda () (setq tab-width 4)))
+
+(add-hook 'js-mode-hook
+          (lambda () (setq tab-width 4)))
+
+;; 配置 evil 模式下的 Tab 宽度
+(setq evil-shift-width 4)
 
