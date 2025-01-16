@@ -301,3 +301,9 @@ C-h k [helpful-key] - Show help for interactive command bound to KEY-SEQUENCE.
 C-h v [counsel-describe-variable] - Display the full documentation of VARIABLE (a symbol).
 
 C-h f [counsel-describe-function] - Display the full documentation of FUNCTION (a symbol).
+
+### 从linux复制
+```shell
+sudo apt install xclip
+cat ws_spider.py |xclip -selection clipboard
+```
