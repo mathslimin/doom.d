@@ -148,3 +148,24 @@ confirm-kill-emacs nil
 ;; 配置 evil 模式下的 Tab 宽度
 (setq evil-shift-width 4)
 
+;; 启用剪贴板支持
+(setq select-enable-clipboard t)
+(setq select-enable-primary t)
+
+;; WSL 下使用 xclip 或 xsel 来复制到 Windows 剪贴板
+(when (and (not (display-graphic-p)) (getenv "WSLENV"))
+  (setq interprogram-paste-function 'xclip-copy-function)
+  (setq interprogram-cut-function 'xclip-cut-function))
+
+
+(defun xclip-cut-function (text &optional push)
+  "Use xclip to copy TEXT to the clipboard."
+  (with-temp-buffer
+    (insert text)
+    (call-process-region (point-min) (point-max) "xclip" nil 0 nil "-selection" "clipboard")))
+
+(defun xclip-copy-function ()
+  "Return the text in the clipboard."
+  (let ((text (shell-command-to-string "xclip -o -selection clipboard")))
+    (string-trim text)))
+
