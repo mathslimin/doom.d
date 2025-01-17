@@ -145,7 +145,6 @@ confirm-kill-emacs nil
   (setq web-mode-indent-style 4))
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js?\\'" . js2-mode))
-;; ~/.doom.d/config.el
 (use-package apheleia
   :config
   (setq apheleia-formatters
@@ -168,7 +167,8 @@ confirm-kill-emacs nil
 
 (add-hook 'js-mode-hook
           (lambda () (setq tab-width 4)))
-
+(add-hook 'js2-mode-hook
+          (lambda () (setq tab-width 4)))
 
 ;; 配置 evil 模式下的 Tab 宽度
 (setq evil-shift-width 4)
