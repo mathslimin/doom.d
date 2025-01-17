@@ -132,12 +132,36 @@ confirm-kill-emacs nil
 ;;lsp frequency and cpu limit
 (setq lsp-idle-delay 0.5)
 (setq lsp-diagnostics-provider :none)
+
 ;; 设置全局 Tab 宽度为 4 个空格
 (setq-default tab-width 4)
-
-;; 使用空格代替 Tab 字符
-(setq-default indent-tabs-mode nil)
-
+(setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
+(setq-default tab-width 4)           ;; Set tab width to 4 spaces
+(setq-default standard-indent 4)     ;; Set standard indentation to 4 spaces
+(setq js2-basic-offset 4)
+(setq lsp-clients-typescript-formatting-options
+      '(:tabSize 4 :insertSpaces t))
+(after! web-mode
+  (setq web-mode-indent-style 4))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . js2-mode))
+;; ~/.doom.d/config.el
+(use-package apheleia
+  :config
+  (setq apheleia-formatters
+        '((prettier . ("npx" "prettier" "--stdin-filepath" filepath))))
+  (setq apheleia-mode-alist
+        '((js-mode . prettier)
+          (js-ts-mode . prettier)
+          (typescript-mode . prettier)
+          (typescript-ts-mode . prettier)
+          (json-mode . prettier)
+          (css-mode . prettier)
+          (html-mode . prettier)
+          (yaml-mode . prettier)
+          (markdown-mode . prettier))))
+(setq apheleia-formatters
+      '((prettier . ("npx" "prettier" "--stdin-filepath" filepath "--tab-width" "4" "--use-tabs" "false"))))
 ;; 在特定模式（如 Python）中设置 Tab 宽度
 (add-hook 'python-mode-hook
           (lambda () (setq tab-width 4)))
@@ -145,8 +169,11 @@ confirm-kill-emacs nil
 (add-hook 'js-mode-hook
           (lambda () (setq tab-width 4)))
 
+
 ;; 配置 evil 模式下的 Tab 宽度
 (setq evil-shift-width 4)
+
+
 
 ;; 启用剪贴板支持
 (setq select-enable-clipboard t)
