@@ -88,10 +88,26 @@ confirm-kill-emacs nil
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+;;(defun lsp-go-install-save-hooks ()
+;;  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+;;  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+;;(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+
+;;cmake-mode disable format
+;;(setq-hook! 'cmake-mode-hook +format-with :none)
+;;(setq-hook! 'c-mode-hook +format-with :none)
+;;(setq-hook! 'c++-mode-hook +format-with :none)
+;;(setq-hook! 'python-mode-hook +format-with :none)
+;;(setq-hook! 'javascript-mode-hook +format-with :none)
+;;(setq-hook! 'js2-mode-hook +format-with :none)
+;;(setq-hook! 'web-mode-hook +format-with :none)
+;;关闭 format-all 自动格式化
+
+(remove-hook 'before-save-hook 'format-all-buffer)
+;;关闭 LSP 自动格式化
+(after! lsp-mode
+  (setq lsp-enable-on-type-formatting nil
+        lsp-format-on-save nil))
 
 ;; Optional - provides fancier overlays.
 (use-package lsp-ui
@@ -115,11 +131,6 @@ confirm-kill-emacs nil
 ;;rust
 (setq rustic-lsp-server 'rust-analyzer)
 
-;;cmake-mode disable format
-(setq-hook! 'cmake-mode-hook +format-with :none)
-(setq-hook! 'c-mode-hook +format-with :none)
-(setq-hook! 'c++-mode-hook +format-with :none)
-(setq-hook! 'python-mode-hook +format-with :none)
 
 (defun compile-and-run-c ()
   "Compile and run the current C file."
@@ -133,47 +144,12 @@ confirm-kill-emacs nil
 (setq lsp-idle-delay 0.5)
 (setq lsp-diagnostics-provider :none)
 
-;; 设置全局 Tab 宽度为 4 个空格
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)  ;; Use spaces instead of tabs
-(setq-default tab-width 4)           ;; Set tab width to 4 spaces
-(setq-default standard-indent 4)     ;; Set standard indentation to 4 spaces
-(setq js2-basic-offset 4)
-(setq lsp-clients-typescript-formatting-options
-      '(:tabSize 4 :insertSpaces t))
-(after! web-mode
-  (setq web-mode-indent-style 4))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js?\\'" . js2-mode))
-(use-package apheleia
-  :config
-  (setq apheleia-formatters
-        '((prettier . ("npx" "prettier" "--stdin-filepath" filepath))))
-  (setq apheleia-mode-alist
-        '((js-mode . prettier)
-          (js-ts-mode . prettier)
-          (typescript-mode . prettier)
-          (typescript-ts-mode . prettier)
-          (json-mode . prettier)
-          (css-mode . prettier)
-          (html-mode . prettier)
-          (yaml-mode . prettier)
-          (markdown-mode . prettier))))
-(setq apheleia-formatters
-      '((prettier . ("npx" "prettier" "--stdin-filepath" filepath "--tab-width" "4" "--use-tabs" "false"))))
-;; 在特定模式（如 Python）中设置 Tab 宽度
-(add-hook 'python-mode-hook
-          (lambda () (setq tab-width 4)))
 
-(add-hook 'js-mode-hook
-          (lambda () (setq tab-width 4)))
-(add-hook 'js2-mode-hook
-          (lambda () (setq tab-width 4)))
-
-;; 配置 evil 模式下的 Tab 宽度
-(setq evil-shift-width 4)
-
-
+;; 语法检查
+(after! lsp-mode
+  (setq lsp-clients-typescript-server-args '("--stdio"))
+  (setq lsp-typescript-server "typescript-language-server"))
+(add-hook 'js-mode-hook #'lsp)
 
 ;; 启用剪贴板支持
 (setq select-enable-clipboard t)
@@ -196,3 +172,46 @@ confirm-kill-emacs nil
   (let ((text (shell-command-to-string "xclip -o -selection clipboard")))
     (string-trim text)))
 
+;; 使用 4 个空格作为缩进
+(setq-default indent-tabs-mode nil)          ;; 禁用制表符，确保使用空格
+(setq-default tab-width 4)                   ;; 设置每个制表符对应 4 个空格
+(setq-default standard-indent 4)             ;; 设置默认缩进为 4 个空格
+;; 针对不同的编程语言模式，设置缩进为 4 个空格
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local indent-tabs-mode nil) ;; 确保每个模式都不使用制表符
+            (setq-local tab-width 4)         ;; 设置缩进为 4 个空格
+            (setq-local standard-indent 4))) ;; 设置缩进为 4 个空格
+
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js?\\'" . js2-mode))
+(setq js2-basic-offset 4)
+(setq-default js2-basic-offset 4)
+;; 设置JavaScript缩进级别为4个空格
+(setq js-indent-level 4)
+
+(setq lsp-clients-typescript-formatting-options
+      '(:tabSize 4 :insertSpaces t))
+
+(after! js2-mode
+  (setq js2-basic-offset 4)          ;; 设置 js2 缩进为 4 个空格
+  (setq js-indent-level 4)           ;; 设置 JS 缩进为 4 个空格
+  (setq rjsx-indent-level 4)         ;; 设置 rjsx-mode 缩进为 4 个空格
+  (setq-default indent-tabs-mode nil))  ;; 禁用制表符，确保使用空格
+
+(after! rjsx-mode
+  (setq js2-basic-offset 4)          ;; 设置 js2 缩进为 4 个空格
+  (setq js-indent-level 4)           ;; 设置 JS 缩进为 4 个空格
+  (setq rjsx-indent-level 4)         ;; 设置 rjsx-mode 缩进为 4 个空格
+  (setq-default indent-tabs-mode nil))  ;; 禁用制表符，确保使用空格
+
+(after! web-mode
+  (setq web-mode-markup-indent-offset 4
+        web-mode-css-indent-offset 4
+        web-mode-code-indent-offset 4))
+
+(after! typescript-mode
+  (setq typescript-indent-level 4))
+
+
+(setq-default buffer-file-coding-system 'utf-8-unix)  ;; 默认使用 LF 换行符
