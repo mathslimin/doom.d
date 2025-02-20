@@ -13,17 +13,6 @@
 ;;
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
-;;(setq url-proxy-services
-;;   '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-;;     ("http" . "127.0.0.1:4567")
-;;     ("https" . "127.0.0.1:4567")))
-;;(setq lsp-java-jdt-download-url "http://10.243.33.98/jdt-language-server-latest.tar.gz")
-;;; 添加中国源
-;;(setq package-archives '(("gnu" . "http://mirrors.ustc.edu.cn/elpa/gnu/")
-;;                         ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/")
-;;                         ("melpa-stable" . "http://mirrors.ustc.edu.cn/elpa/melpa-stable/")
-;;                         ("org" . "http://mirrors.ustc.edu.cn/elpa/org/")))
-;;
 ;;(package-initialize) ;; You might already have this line
 
 (doom! :input
@@ -68,7 +57,8 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format +onsave)  ; automated prettiness
+       ;(format +onsave)  ; automated prettiness
+       format
        ;;god               ; run Emacs commands without modifier keys
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
