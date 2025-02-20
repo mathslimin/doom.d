@@ -86,29 +86,20 @@ confirm-kill-emacs nil
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
 
-;; Set up before-save hooks to format buffer and add/delete imports.
-;; Make sure you don't have other gofmt/goimports hooks enabled.
-;;(defun lsp-go-install-save-hooks ()
-;;  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-;;  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-;;(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
-;;cmake-mode disable format
-;;(setq-hook! 'cmake-mode-hook +format-with :none)
-;;(setq-hook! 'c-mode-hook +format-with :none)
-;;(setq-hook! 'c++-mode-hook +format-with :none)
-;;(setq-hook! 'python-mode-hook +format-with :none)
-;;(setq-hook! 'javascript-mode-hook +format-with :none)
-;;(setq-hook! 'js2-mode-hook +format-with :none)
-;;(setq-hook! 'web-mode-hook +format-with :none)
-;;关闭 format-all 自动格式化
-
-(remove-hook 'before-save-hook 'format-all-buffer)
-;;关闭 LSP 自动格式化
-(after! lsp-mode
-  (setq lsp-enable-on-type-formatting nil
-        lsp-format-on-save nil))
-
+(after! python
+  ;; Use autopep8 with specific arguments for Python
+  (setq python-format-on-save t)  ;; Automatically format on save
+  (setq python-format-command "autopep8")  ;; Specify the formatter
+  (setq python-format-args '("--max-line-length=200"))  ;; Set the max line length
+)
+(after! format-all
+  ;; Add Python to the list of languages supported by format-all
+  (add-to-list 'format-all-formatters
+               '(python-mode . "autopep8 --max-line-length=200"))
+)
+(map! :leader
+      :desc "Format buffer"
+      "c f" #'format-all-buffer)
 ;; Optional - provides fancier overlays.
 (use-package lsp-ui
   :ensure t
@@ -189,7 +180,6 @@ confirm-kill-emacs nil
 (setq-default js2-basic-offset 4)
 ;; 设置JavaScript缩进级别为4个空格
 (setq js-indent-level 4)
-
 (setq lsp-clients-typescript-formatting-options
       '(:tabSize 4 :insertSpaces t))
 
@@ -215,3 +205,6 @@ confirm-kill-emacs nil
 
 
 (setq-default buffer-file-coding-system 'utf-8-unix)  ;; 默认使用 LF 换行符
+(setq js2-basic-offset 4)  ; Set the global value to 4 spaces
+(add-hook 'js2-mode-hook
+          (lambda () (setq js2-basic-offset 4)))  ; Set to 4 spaces for all js2-mode buffers
