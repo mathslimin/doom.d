@@ -87,10 +87,10 @@ confirm-kill-emacs nil
   :hook (go-mode . lsp-deferred))
 
 (after! python
-  ;; Use autopep8 with specific arguments for Python
+  ;; Use BLACK with specific arguments for Python
   (setq python-format-on-save t)  ;; Automatically format on save
-  (setq python-format-command "autopep8")  ;; Specify the formatter
-  (setq python-format-args '("--max-line-length=200"))  ;; Set the max line length
+  (setq python-format-command "black")  ;; Specify the formatter
+  (setq python-format-args '("--skip-string-normalization --line-length=200"))  ;; Set the max line length
 )
 (after! format-all
   ;; Add Python to the list of languages supported by format-all
