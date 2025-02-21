@@ -39,6 +39,11 @@ display-line-numbers-mod #显示或者隐藏行号
 | `C-x C-z`                                                    | 挂起emacs                    |
 | 所以在 doom.d 的配置里面将 C-X C-Z 绑定为 suspend-emacs 这个函数 |                              |
 
+### 代码跳转
+projectile-regenerate-tags 生成TAGS
+- normal模式下 空格+c+d可以跳转，快捷键 `gd` 也可以用于跳转
+- emacs模式下快捷键 `M-.` 用于跳转，`M-,` 用于跳回。M-表示按住alt+,
+
 ## 工作区 Workspace
 
 使用工作区可以保存当前项目的编辑状态，这样可以快速进入工作状态。工作区和
@@ -200,7 +205,52 @@ doom-emacs 使用 vim 快捷键编辑单个文件，使用 emacs 快捷键编辑
 
 http://machbbs.com/v2ex/320902
 
+### 1. 使用 Flycheck 跳转到语法错误
+
+#### 跳转到下一个错误：
+
+- 按 `M-g n` 跳转到下一个错误（`M-g n` 即 `Alt + g` 然后按 `n`）。
+- 按 `M-g p` 跳转到上一个错误（`M-g p` 即 `Alt + g` 然后按 `p`）。
+
+#### 列出所有错误：
+
+- 按 `M-x flycheck-list-errors` 列出所有的错误和警告。这将显示一个错误列表，允许你选择并跳转到某个错误。
+
+### 2. 使用 LSP 跳转到语法错误
+如果你在 Doom Emacs 中使用 LSP（语言服务器协议），那么语法错误通常会通过 LSP 服务器反馈，并可以通过 lsp 配置查看和跳转到这些错误。
+跳转到下一个错误：
+按 `M-x lsp-treemacs-errors-list` 显示错误列表。
+
+在 Doom Emacs 中，`lsp-treemacs-errors-list` 是一个用来显示 LSP 语法和诊断错误的错误列表界面。如果你想关闭或隐藏这个界面，可以使用 `treemacs` 提供的命令来隐藏。
+
+### 方法 1: 使用 `treemacs` 命令
+
+要关闭或隐藏 `lsp-treemacs-errors-list` 窗口，可以使用 `treemacs` 自带的命令。具体来说，执行以下命令：
+
+1. 关闭 Treemacs 面板：
+   - 你可以直接使用 `M-x treemacs-select-window` 来切换到 `treemacs` 窗口，然后按 `q` 来退出。
+   - 或者使用 `M-x treemacs` 来打开/关闭 `treemacs` 面板，然后按 `q` 退出。
+
+### 方法 2: 使用 `lsp` 关闭错误列表
+
+如果你不想手动关闭 `lsp-treemacs-errors-list`，你也可以使用 `lsp` 的命令来关闭错误列表窗口：
+
+```lisp
+M-x lsp-treemacs-errors-list-close
+```
+
+这将会关闭错误列表，并且不会影响到其他 Treemacs 窗口。
+
+### **隐藏错误列表窗口**
+
+如果你使用的是 Flycheck 的错误列表窗口（通过 `M-x flycheck-list-errors` 打开），可以通过以下方式关闭它：
+
+- 按 `q`：关闭错误列表窗口。
+- 按 `C-g`：取消当前操作并关闭窗口。
+
 ### golang
+
+https://www.v2ex.com/t/742132
 
 默认 go-mode 会以`go.mod` 文件所在文件为一个项目（所以每个 go 项目必须先执行`go mod init xxx`,来创建一个项目，如果有`.git` 与 `go.mod` 同时存在会在第一次打开的时候询问以哪个项目为准，一般输入 i 就是一 go.mod 所在目录项目为准），但 gopls 会把 go-src 当作三方依赖，所以可以从我们当前代码跳到标准库代码定义中。
 
@@ -301,9 +351,3 @@ C-h k [helpful-key] - Show help for interactive command bound to KEY-SEQUENCE.
 C-h v [counsel-describe-variable] - Display the full documentation of VARIABLE (a symbol).
 
 C-h f [counsel-describe-function] - Display the full documentation of FUNCTION (a symbol).
-
-### 从linux复制
-```shell
-sudo apt install xclip
-cat ws_spider.py |xclip -selection clipboard
-```

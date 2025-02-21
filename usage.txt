@@ -111,3 +111,14 @@ SPC h：帮助菜单，还有主题切换（SPC h t，不知道为啥放到这�
 SPC p：项目操作。本人不习惯此类操作，不介绍。
 
 原文链接：https://blog.csdn.net/u014801157/article/details/113887821
+
+Windows Terminal 常用快捷键
+快捷键	使用
+Ctrl+Shift+数字	打开新控制台
+Ctrl+Alt+数字	切换控制台
+Shift+Alt++/=	横向打开新控制台
+Shift+Alt+_/-	纵向打开新控制台
+Shift+Alt+方向键	控制控制台字体大小
+Ctrl+Shift+w	关闭当前控制台
+Alt+方向键	在本标签内切换控制台
+

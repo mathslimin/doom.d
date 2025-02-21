@@ -48,3 +48,10 @@ cd ..
 sudo dpkg -i git_2.17.1-1ubuntu0.4_amd64.deb
 ```
 完成以上步骤即可解决error: RPC failed; curl 56 GnuTLS recv error (-110): The TLS connection was non-properly terminated问题。
+
+### 安装ctags
+
+```bash
+sudo apt install exuberant-ctags
+```
+
